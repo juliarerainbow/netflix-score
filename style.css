@@ -1,0 +1,15 @@
+button{
+    border:none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+span {
+    margin: 0px 4px;
+    font-weight: bold;
+}
+
+
+#shows-container{
+    font-size: x-large;
+}
