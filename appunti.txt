@@ -1,0 +1,3 @@
+//  se aggiungo una votazione, riordini 
+//  alert se la form non ha i campi
+//  far diventare la form una dialog

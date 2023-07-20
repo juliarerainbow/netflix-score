@@ -23,6 +23,3 @@ function sendData(event) {
 
 }
 
-//
-//  alert se la form non ha i campi
-//  far diventare la form una dialog
