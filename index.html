@@ -13,6 +13,39 @@
 
 
     </div>
+
+<!-- A modal dialog containing a form -->
+    <dialog id="newShowDialog">
+        <form id="create-form" name="create" onsubmit="sendData(event)">
+
+            <div>
+                <label for="title">Inserisci il titolo</label><br>
+                <input type="text" name="title" id="title" placeholder="Titolo" required>
+            </div>
+            <div>
+                <label for="author">Inserisci l'autore</label><br>
+                <input type="text" name="author" id="author" placeholder="Autore" required> 
+            </div>
+            <div>
+                <label for="imageUrl">Inserisci un'immagine</label><br>
+                <input type="text" name="imageUrl" id="imageUrl" placeholder="Immagine" required >
+            </div>
+            <div>
+                <label for="isOver">Spunta se la serie è conclusa</label>
+                <input type="checkbox" name="isOver" id="isOver">
+            </div>
+
+
+            <!-- formmethod="dialog" permette a "cancel" di chiudersi direttamente -->
+            <div>
+                <button value="cancelBtn" formmethod="dialog">Cancel</button>
+                <button id="confirmBtn" type="submit">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+    <p>
+        <button id="showDialog">Show the dialog</button>
+    </p>
 </body>
 <script src="./services/db-service.js"></script>
 <script src="./controllers/app-controller.js"></script>

@@ -3,7 +3,7 @@ class AppController {
     constructor(){
         this.shows = [];
         this.isVoting=false;
-        // this.orderMethod=orderMethod;
+        this.orderMethod='';
     }
 
     init(){
@@ -15,6 +15,14 @@ class AppController {
     }
     
     render(){
+
+        if (this.orderMethod === 'upvote') {
+        this.shows.sort((s1, s2) => s2.upVotes - s1.upVotes);
+         } else if(this.orderMethod === 'downVote'){
+        this.shows.sort((s1, s2) => s2.downVotes - s1.downVotes);
+         }
+
+
         const appContainer = document.getElementById('app');
 
         appContainer.innerHTML = `
@@ -37,17 +45,31 @@ class AppController {
     }   
 
 
-    sortByDownvotes(){
+    // sortByDownvotes(){
 
-        this.shows.sort((s1,s2) => s2.downVotes - s1.downVotes);
+        
+    //     this.shows.sort((s1,s2) => s2.downVotes - s1.downVotes);
+    //     this.renderShows();
+    // }
+
+    // sortByUpvotes(){
+    //     this.shows.sort((s1,s2) => s2.upVotes - s1.upVotes);
+    //     this.renderShows();
+    // }
+
+
+
+    sortByUpvotes() {
+        this.orderMethod = 'upvote'
+        //this.shows.sort((s1, s2) => s2.upVotes - s1.upVotes);
         this.renderShows();
     }
 
-    sortByUpvotes(){
-        this.shows.sort((s1,s2) => s2.upVotes - s1.upVotes);
+    sortByDownvotes() {
+        this.orderMethod = 'downvote'
+        //this.shows.sort((s1, s2) => s2.downVotes - s1.downVotes);
         this.renderShows();
     }
-
 
 
     // orderMethod(){
@@ -57,13 +79,11 @@ class AppController {
 
 
     renderShows(){
-
-        // if(this.orderMethod = 'upvote') {
-        //     //sort 
-
-        // }else if (this.orderMethod='downvote'){
-        //     //sort
-        // }
+        if (this.orderMethod = 'upvote') {
+            this.shows.sort((s1, s2) => s2.upVotes - s1.upVotes);
+        } else if(this.orderMethod = 'downVote'){
+            this.shows.sort((s1, s2) => s2.downVotes - s1.downVotes);
+        }
 
         const btnContainer = document.getElementById('btn-container');
         btnContainer.innerHTML="";
